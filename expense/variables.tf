@@ -1,14 +1,13 @@
+# ec2 variables
 variable "instance_names" {
     type = list 
     default = ["db","backend","frontend"]
 }
 
-
-
 variable "image_id" {
-    type = string
-    default = "ami-09c813fb71547fc4f"
-    description = "RHEL-9 AMI ID"
+    type = string # optional
+    default = "ami-09c813fb71547fc4f" # optional
+    description = "RHEL-9 AMI ID" # optional
 }
 
 variable "instance_type" {
@@ -24,6 +23,7 @@ variable "common_tags" {
     }
 }
 
+# sg variables
 variable "sg_name" {
     default = "allow_ssh"
 }
@@ -39,4 +39,13 @@ variable "protocol" {
 variable "allowed_cidr" {
     type = list(string)
     default = ["0.0.0.0/0"]
+}
+
+#r53 variables
+variable "zone_id" {
+    default = "Z0552987384ZT8UL249PX"
+}
+
+variable "domain_name" {
+    default = "soumyadevops.space"
 }
